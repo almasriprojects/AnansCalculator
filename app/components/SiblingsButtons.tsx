@@ -5,7 +5,6 @@ import { Dispatch, SetStateAction } from 'react';
 interface SiblingsButtonsProps {
   siblings: boolean | null;
   setSiblings: (value: boolean) => void;
-  showSiblingsButtons: boolean;
   maleSiblings: string | number;
   setMaleSiblings: Dispatch<SetStateAction<string | number>>;
   femaleSiblings: string | number;
@@ -16,7 +15,6 @@ interface SiblingsButtonsProps {
 const SiblingsButtons: React.FC<SiblingsButtonsProps> = ({
   siblings,
   setSiblings,
-  showSiblingsButtons,
   maleSiblings,
   setMaleSiblings,
   femaleSiblings,
@@ -37,27 +35,25 @@ const SiblingsButtons: React.FC<SiblingsButtonsProps> = ({
 
   return (
     <>
-      {showSiblingsButtons && (
-        <div className="mb-4">
-          <label className="block mb-1">Siblings</label>
-          <>
-            <Button
-              variant={siblings === true ? 'default' : 'secondary'}
-              className={`w-1/2 p-2 rounded-l`}
-              onClick={() => setSiblings(true)}
-            >
-              Yes
-            </Button>
-            <Button
-              variant={siblings === false ? 'default' : 'secondary'}
-              className={`w-1/2 p-2 rounded-r`}
-              onClick={() => setSiblings(false)}
-            >
-              No
-            </Button>
-          </>
-        </div>
-      )}
+      <div className="mb-4">
+        <label className="block mb-1">Siblings</label>
+        <>
+          <Button
+            variant={siblings === true ? 'default' : 'secondary'}
+            className={`w-1/2 p-2 rounded-l`}
+            onClick={() => setSiblings(true)}
+          >
+            Yes
+          </Button>
+          <Button
+            variant={siblings === false ? 'default' : 'secondary'}
+            className={`w-1/2 p-2 rounded-r`}
+            onClick={() => setSiblings(false)}
+          >
+            No
+          </Button>
+        </>
+      </div>
       {siblings && (
         <>
           <label className="block mb-1">
